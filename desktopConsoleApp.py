@@ -10,25 +10,16 @@ def header():
     print("BINARY & DECIMAL CALCULATOR")
     print("---------------------------")
 
-def checkInt(number):
+def checkInt(number, numberList):
     try:
-        int(number)
-        return True
+        if int(number) in numberList:
+            return True
+        else:
+            raise Exception
     except:
         print("Incorrect input")
 
-def checkRange(numberList):
-    incorrect_input = True
-    while (incorrect_input):
-        try:
-            inp = int(input())
-            if inp not in numberList:
-                raise TypeError
-            else:
-                incorrect_input = False
-                os.system('cls||clear')
-        except:
-            print("Incorrect input")
+
 
 def mainMenu():
     header()
@@ -40,7 +31,7 @@ def mainMenu():
 
     while True:
         userInput1 = input()
-        if (checkInt(userInput1)):
+        if (checkInt(userInput1, menu_options)):
             break
 
 
