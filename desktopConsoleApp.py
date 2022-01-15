@@ -2,13 +2,19 @@ from main import decimalToBinary, binaryToDecimal
 import os
 
 options = ["Binary to decimal", "Decimal to binary", "Exit"]
+menu_range = range(1,4)
+binary_range = range(0,2)
 
-menu_options = range(1,4)
-binary = range(0,2)
-
-def header():
+def headerDisplay():
+    os.system('cls||clear')
     print("BINARY & DECIMAL CALCULATOR")
     print("---------------------------")
+
+def menuDisplay():
+    i = 1
+    for opt in options:
+        print(f"{i}. {opt}")
+        i += 1
 
 def checkInt(number, numberList):
     try:
@@ -20,19 +26,22 @@ def checkInt(number, numberList):
         print("Incorrect input")
 
 
+def menuLoop():
+    incorrectInput = True
+    while incorrectInput:
+        userInput = input()
+        if (checkInt(userInput, menu_range)):
+            incorrectInput = False
+    
+    if (int(userInput) == 1):
+        print(options[0])
+    if (int(userInput) == 2):
+        print(options[1])
+    if (int(userInput) == 3):
+        print(options[2])
+    
 
-def mainMenu():
-    header()
-    i = 1
 
-    for opt in options:
-        print(f"{i}. {opt}")
-        i += 1
-
-    while True:
-        userInput1 = input()
-        if (checkInt(userInput1, menu_options)):
-            break
-
-
-mainMenu()
+headerDisplay()
+menuDisplay()
+menuLoop()
