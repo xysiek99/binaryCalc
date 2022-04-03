@@ -5,20 +5,6 @@ options = ["Binary to decimal", "Decimal to binary", "Exit"]
 options_range = range(1, len(options) + 1)
 binary_values = range(0,2)
 decimal_values = range(0,10)
-
-# def menuLoop():
-#     incorrectInput = True
-#     while incorrectInput:
-#         user_input = input()
-#         if (checkInt(user_input, options_range)):
-#             incorrectInput = False
-    
-#     if (int(user_input) == 1):
-#         print(options[0])
-#     if (int(user_input) == 2):
-#         print(options[1])
-#     if (int(user_input) == 3):
-#         print(options[2])
     
 def checkOption(input_number, input_range):
     try:
@@ -38,7 +24,6 @@ class Menu:
         self.options = options
         self.input_range = input_range
         self.accepted_values = accepted_values
-        self.incorrect_input = False
 
     def displayHeader(self):
         os.system('cls||clear')
@@ -52,12 +37,11 @@ class Menu:
             i += 1
 
     def loopMenu(self):
-        self.incorrect_input = True
-        while self.incorrect_input:
+        while True:
             user_input = input()
             if (checkOption(user_input, self.input_range)):
-                self.incorrectInput = False
                 break
+                #return user_input
 
 class BinaryMenu(Menu):
     def __init__(self, header, options = None, input_range = None, accepted_values = None):
@@ -72,4 +56,30 @@ mainMenu = Menu("BINARY & DECIMAL CALCULATOR", options = options, input_range = 
 binaryMenu = BinaryMenu("Enter binary value", accepted_values = binary_values)
 decimalMenu = DecimalMenu("Enter decimal value", accepted_values = decimal_values)
 
-mainMenu.loopMenu()
+# mainMenu.displayHeader()
+# mainMenu.displayOptions()
+# mainMenu.loopMenu()
+
+def startBinaryMenu():
+    binaryMenu.displayHeader()
+
+def startDecimalMenu():
+    decimalMenu.displayHeader()
+
+def startMainMenu():
+    mainMenu.displayHeader()
+    mainMenu.displayOptions()
+    
+    while True:
+        my_inp = input()
+        if my_inp == "1":
+            binaryMenu.displayHeader()
+        elif my_inp == "2":
+            decimalMenu.displayHeader()
+        elif my_inp == "3":
+            break
+        else:
+            print("Incorrect input")
+
+
+startMainMenu()
