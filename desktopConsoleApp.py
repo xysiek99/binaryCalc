@@ -27,6 +27,15 @@ def checkIfDecimal(user_inp):
     except:
         print("Incorrect input")
 
+def checkIfInt(user_inp):
+    try:
+        if int(user_inp):
+            print(decimalToBinary(int(user_inp)))
+        else:
+            raise Exception
+    except:
+        print("Incorrect input")   
+
 class Menu:
     def __init__(self, header, options = None, input_range = None, accepted_values = None):
         self.header = header
@@ -65,28 +74,34 @@ mainMenu = Menu("BINARY & DECIMAL CALCULATOR", options = options, input_range = 
 binaryMenu = BinaryMenu("Enter binary value", accepted_values = binary_values)
 decimalMenu = DecimalMenu("Enter decimal value", accepted_values = decimal_values)
 
-# mainMenu.displayHeader()
-# mainMenu.displayOptions()
-# mainMenu.loopMenu()
 
 def startBinaryMenu():
     binaryMenu.displayHeader()
     user_inp = input()
     checkIfDecimal(user_inp = user_inp)
+    input("Press any key...")
+    startMainMenu()
 
 def startDecimalMenu():
     decimalMenu.displayHeader()
+    user_inp = input()
+    checkIfInt(user_inp = user_inp)
+    input("Press any key...")
+    startMainMenu()
 
 def startMainMenu():
+    display = True
     mainMenu.displayHeader()
     mainMenu.displayOptions()
     
-    while True:
+    while display:
         my_inp = input()
         if my_inp == "1":
+            display = False
             startBinaryMenu()
         elif my_inp == "2":
-            decimalMenu.displayHeader()
+            display = False
+            startDecimalMenu()
         elif my_inp == "3":
             break
         else:
