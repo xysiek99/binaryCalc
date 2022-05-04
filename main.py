@@ -9,8 +9,6 @@ def binaryToDecimal(binaryNumber):
 
     return(decimal_value)
 
-# binary = 1101
-# print(binaryToDecimal(binary))
 
 def decimalToBinary(decimalNumber, printOperations = False):
     binary_list = []
@@ -28,5 +26,3 @@ def decimalToBinary(decimalNumber, printOperations = False):
 
     return binary_value
 
-# decimal = 13
-# print(decimalToBinary(decimal))
