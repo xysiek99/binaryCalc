@@ -21,7 +21,6 @@ def decimalToBinary(decimalNumber):
         binary_list.insert(0,modulo)
         decimalNumber = int(decimalNumber/2)
     
-    # print(f"Length: {len(binary_list)}; list: {binary_list}")
     return(f"Length: {len(binary_list)}; list: {binary_list}")
 
 decimal = 13
