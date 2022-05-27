@@ -20,6 +20,10 @@ def decimalToBinary(decimalNumber, printOperations = False):
             print(f"{decimalNumber} | {modulo}")
         binary_list.insert(0,modulo)
         decimalNumber = int(decimalNumber/2)
+        consoleApp
+    
+    return(f"Length: {len(binary_list)}; list: {binary_list}")
+        main
 
     for i in binary_list:
         binary_value = binary_value + str(i)
